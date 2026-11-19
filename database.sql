@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS cipher_intelligence CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE cipher_intelligence;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    investigator_id VARCHAR(20) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(190) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    bio VARCHAR(500) DEFAULT 'New investigator',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS case_progress (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NOT NULL,
+    case_id VARCHAR(20) NOT NULL,
+    completed TINYINT(1) NOT NULL DEFAULT 1,
+    correct TINYINT(1) NOT NULL DEFAULT 0,
+    score TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_user_case (user_id, case_id),
+    CONSTRAINT fk_progress_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS feedback (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    visitor_name VARCHAR(100) NOT NULL,
+    visitor_email VARCHAR(190) NOT NULL,
+    message TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;

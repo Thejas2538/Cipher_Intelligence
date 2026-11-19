@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Cipher Intelligence</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">C</span> CIPHER <b>INTELLIGENCE</b></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cases.html">Case Files</a>
+        <a href="training-cases.html">Practice Cases</a>
+        <a href="real-cases.html">Real Cases</a>
+        <a href="profile.php">Profile</a>
+        <a href="about.html">About</a>
+        <a href="admin-feedback.php" class="admin-nav-link">Admin Feedback</a>
+    </nav>
+</header>
+
+<main>
+    <section class="page-intro">
+        <p class="eyebrow">WHO WE ARE</p>
+        <h1>About <span>Cipher Intelligence.</span></h1>
+        <p>A place for curious minds, careful observation and logical thinking.</p>
+    </section>
+
+    <section class="about-box">
+        <p class="eyebrow">OUR PURPOSE</p>
+        <h2>Small details can reveal the bigger picture.</h2>
+        <p>Cipher Intelligence is a fictional investigation platform developed as a first-year web development project. Visitors can browse sample mystery cases, examine clues, read statements and submit their own conclusions.</p>
+        <p>The website demonstrates the basic use of HTML for page structure, CSS for design and JavaScript for interactive features.</p>
+    </section>
+
+    <section class="section contact-layout">
+        <div>
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h2>Send feedback</h2>
+            <p class="muted">Have an idea to improve the platform? Leave a sample message below.</p>
+        </div>
+        <form id="feedbackForm" class="panel" action="save-feedback.php" method="POST">
+            <label for="visitorName">Your name</label>
+            <input id="visitorName" name="visitorName" type="text" maxlength="100" required placeholder="Enter your name">
+
+            <label for="visitorEmail">Email address</label>
+            <input id="visitorEmail" name="visitorEmail" type="email" maxlength="190" required placeholder="name@example.com">
+
+            <label for="visitorMessage">Message</label>
+            <textarea id="visitorMessage" name="visitorMessage" rows="4" maxlength="2000" required placeholder="Write your feedback..."></textarea>
+
+            <button class="button" type="submit">Send feedback</button>
+            <p id="feedbackResult" class="muted" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <span>© 2026 CIPHER INTELLIGENCE</span>
+    <span>ABOUT / CONTACT</span>
+</footer>
+
+<script>
+    const feedbackStatus = new URLSearchParams(window.location.search).get("feedback");
+    const feedbackResult = document.getElementById("feedbackResult");
+
+    if (feedbackStatus === "success") {
+        feedbackResult.textContent = "Thank you! Your feedback has been saved.";
+    } else if (feedbackStatus === "error") {
+        feedbackResult.textContent = "Sorry, your feedback could not be saved. Please try again.";
+    }
+</script>
+</body>
+</html>

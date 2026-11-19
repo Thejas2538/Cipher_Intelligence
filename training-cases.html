@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Practice Cases | Cipher Intelligence</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/training-cases.js" defer></script>
+        <script src="js/training.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">C</span> CIPHER <b>INTELLIGENCE</b></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="cases.html">Case Files</a>
+                <a href="training-cases.html">Practice Cases</a>
+                <a href="real-cases.html">Real Cases</a>
+                <a href="profile.php">Profile</a>
+                <a href="about.html">About</a>
+            </nav>
+        </header>
+        <main>
+            <section class="page-intro"><p class="eyebrow">TRAINING DATABASE / FICTIONAL CASES</p><h1>Practice <span>case files.</span></h1>
+                <p>All names, events and evidence in this section are fictional and created for puzzle practice.</p>
+            </section>
+            <div class="toolbar">
+                <input id="caseSearch" type="search" placeholder="Search practice cases...">
+                <select id="difficultyFilter">
+                    <option value="all">All difficulties</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+            <div class="case-grid" id="trainingGrid"></div>
+            <p id="noResults" class="muted hidden">No cases match your search.</p>
+        </main><footer><span>© 2026 CIPHER INTELLIGENCE</span>
+            <span>THINK · OBSERVE · DEDUCE</span>
+        </footer>
+    </body>
+</html>
